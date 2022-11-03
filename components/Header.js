@@ -8,7 +8,7 @@ import {
 } from "@heroicons/react/24/solid";
 const Header = () => {
   return (
-    <header className="grid grid-cols-3 p-5 bg-white  shadow-md sticky  top-0 z-100 md:px-10">
+    <header className="grid grid-cols-3 p-5 bg-white  shadow-md sticky  top-0 z-10 md:px-10">
       <div className="cursor-pointer my-auto relative flex h-10">
         <Image
           alt="logo"
