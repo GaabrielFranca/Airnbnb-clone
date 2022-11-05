@@ -15,7 +15,7 @@ const LargeCard = ({ img, title, description, buttonText }) => {
       <div className="absolute top-32 left-12">
         <h2 className="w-64 text-4xl mb-3">{title}</h2>
         <p className="text-gray-600">{description}</p>
-        <button className="transition ease-out  hover:shadow-lg active:scale-90 duration-150 text-sm text-white bg-gray-900 px-4 py-2 rounded-lg mt-5">
+        <button className="transition duration-150 ease-out  hover:shadow-lg active:scale-90  text-sm text-white bg-gray-900 px-4 py-2 rounded-lg mt-5">
           {buttonText}
         </button>
       </div>
