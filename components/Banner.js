@@ -6,6 +6,8 @@ const Banner = () => {
       className={`relative h-[300px] md:h-[400px] lg:h-[500px] xl:h-[600px] 2xl:h-[700px]`}
     >
       <Image
+        sizes="h-[300px] md:h-[400px] lg:h-[500px] xl:h-[600px] 2xl:h-[700px"
+        priority={true}
         className="object-cover"
         fill
         src="https://links.papareact.com/0fm"

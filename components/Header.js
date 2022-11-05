@@ -11,6 +11,8 @@ const Header = () => {
     <header className="grid grid-cols-3 p-5 bg-white  shadow-md sticky  top-0 z-10 md:px-10">
       <div className="cursor-pointer my-auto relative flex h-10">
         <Image
+          priority={true}
+          sizes="h-10"
           alt="logo"
           className=" object-contain object-left"
           src="/images/logoAirbnb.png"
