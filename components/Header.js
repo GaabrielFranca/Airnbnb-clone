@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import { DateRangePicker } from "react-date-range";
 import {
   MagnifyingGlassIcon,
@@ -11,13 +12,12 @@ import {
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 
-const Header = () => {
+const Header = ({ placeholder }) => {
   const [searchInput, setSearchInput] = React.useState("");
-
   const [startDate, setStartDate] = React.useState(new Date());
   const [endDate, setEndtDate] = React.useState(new Date());
   const [guests, setGuests] = React.useState(1);
-
+  const router = useRouter();
   function handleSelect(ranges) {
     setStartDate(ranges.selection.startDate);
     setEndtDate(ranges.selection.endDate);
@@ -28,9 +28,27 @@ const Header = () => {
     key: "selection",
   };
 
+  const search = () => {
+    router.push({
+      pathname: "/search",
+      query: {
+        location: searchInput,
+        startDate: startDate.toISOString(),
+        endDate: endDate.toISOString(),
+        guests,
+      },
+    });
+    setSearchInput("");
+  };
+
   return (
     <header className="grid grid-cols-3 p-5 bg-white  shadow-md sticky  top-0 z-10 md:px-10 ">
-      <div className="cursor-pointer my-auto relative flex h-10">
+      <div
+        onClick={() => {
+          router.push("/");
+        }}
+        className="cursor-pointer my-auto relative flex h-10"
+      >
         <Image
           priority={true}
           sizes="h-10"
@@ -47,7 +65,7 @@ const Header = () => {
           onChange={({ target }) => setSearchInput(target.value)}
           className="placeholder-gray-400 text-sm text-gray-600 flex-grow pl-5 outline-none bg-transparent"
           type="text"
-          placeholder="Start your search"
+          placeholder={placeholder ? placeholder : "Start your search"}
         />
         <MagnifyingGlassIcon className="md:mx-2 hidden md:inline-flex h-8 text-white bg-red-400 rounded-full p-2 cursor-pointer" />
       </div>
@@ -90,7 +108,9 @@ const Header = () => {
             >
               Cancel
             </button>
-            <button className="flex-grow text-red-400">Search</button>
+            <button onClick={search} className="flex-grow text-red-400">
+              Search
+            </button>
           </div>
         </div>
       )}
