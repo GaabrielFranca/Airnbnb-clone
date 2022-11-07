@@ -93,6 +93,7 @@ const Header = ({ placeholder }) => {
             </h2>
             <UsersIcon className="h-5" />
             <input
+              pla
               min={1}
               onChange={({ target }) => setGuests(target.value)}
               value={guests}
