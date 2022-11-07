@@ -18,6 +18,7 @@ const Header = ({ placeholder }) => {
   const [endDate, setEndtDate] = React.useState(new Date());
   const [guests, setGuests] = React.useState(1);
   const router = useRouter();
+
   function handleSelect(ranges) {
     setStartDate(ranges.selection.startDate);
     setEndtDate(ranges.selection.endDate);
